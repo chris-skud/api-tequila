@@ -6,7 +6,7 @@ RSpec.describe 'Brands' do
   context 'when #index requested' do
     let(:brands) {json[:brands]}
 
-    it 'returns producers collection' do
+    it 'returns brands collection' do
       brand = FactoryGirl.create(:brand)
 
       get '/brands'
