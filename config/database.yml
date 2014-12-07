@@ -1,0 +1,19 @@
+defaults: &defaults
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  host: <%= ENV['MYSQL_HOST'] || '127.0.0.1' %>
+  port: <%= ENV['MYSQL_PORT'] %>
+  username: <%= ENV['PROVIDER_MYSQL_USER'] || 'root' %>
+  password: <%= ENV['PROVIDER_MYSQL_PASSWORD'] %>
+
+development:
+  <<: *defaults
+  database: tequila_development
+
+test: &TEST
+  <<: *defaults
+  database: tequila_test
+  pool: 2
+  reconnect: true
+  wait_timeout: 31536000
