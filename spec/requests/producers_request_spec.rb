@@ -3,7 +3,7 @@ require 'json_request_helper'
 
 RSpec.describe 'Producers' do
 
-  context 'when requested' do
+  context 'when #index requested' do
     let(:producers) {json[:producers]}
 
     it 'returns producers collection' do
