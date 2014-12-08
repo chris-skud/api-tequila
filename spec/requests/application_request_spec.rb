@@ -10,7 +10,7 @@ RSpec.describe 'Application' do
       expect(response.code).to eq '404'
 
       # something weird is occurring with ActiveModel serializer that prevents a reasonable json response.
-      expect(response.body).to eq 'Page not found'
+      expect(response.body).to eq 'Resource not found'
     end
   end
 end
