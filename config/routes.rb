@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   get 'producers' => 'producer#index'
+  get 'producers/:id' => 'producer#show'
+  post 'producers' => 'producer#create'
   get 'brands' => 'brand#index'
   get 'products' => 'product#index'
   get '*unmatched_route', to: 'application#not_found'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
