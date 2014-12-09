@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   delete 'brands/:id' => 'brand#delete'
 
   get 'products' => 'product#index'
+  get 'products/:id' => 'product#show'
+  post 'products' => 'product#create'
+  patch 'products/:id' => 'product#update'
+  delete 'products/:id' => 'product#delete'
 
   get '*unmatched_route', to: 'application#not_found'
 
