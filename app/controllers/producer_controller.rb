@@ -20,6 +20,22 @@ class ProducerController < ApplicationController
     render status: :created, json: producer
   end
 
+  def update
+    producer = Producer.find(params[:id])
+    producer.update(producer_params)
+    render status: :no_content, json: {}
+  end
+
+  def delete
+    producer = Producer.find_by(id: params[:id])
+    if producer
+      producer.destroy
+      render status: :no_content, json: {}
+    else
+      not_found
+    end
+  end
+
   private
 
   def producer_params

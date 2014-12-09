@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+
   get 'producers' => 'producer#index'
   get 'producers/:id' => 'producer#show'
   post 'producers' => 'producer#create'
+  patch 'producers/:id' => 'producer#update'
+  delete 'producers/:id' => 'producer#delete'
+
   get 'brands' => 'brand#index'
+
   get 'products' => 'product#index'
+
   get '*unmatched_route', to: 'application#not_found'
 
 
