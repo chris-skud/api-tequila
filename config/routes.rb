@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   delete 'producers/:id' => 'producer#delete'
 
   get 'brands' => 'brand#index'
+  get 'brands/:id' => 'brand#show'
+  post 'brands' => 'brand#create'
+  patch 'brands/:id' => 'brand#update'
+  delete 'brands/:id' => 'brand#delete'
 
   get 'products' => 'product#index'
 
