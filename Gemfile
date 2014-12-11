@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'rails-api'
 gem 'active_model_serializers'
 gem 'foreigner'
+gem 'rubyXL', '~> 3.3.1'
 
 group :development do
   gem 'spring'
