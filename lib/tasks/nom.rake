@@ -1,10 +1,19 @@
 namespace :nom do
   desc "import-convert-seed tequila nom data"
-  task :seed do
+  task :seed => :environment do
     puts 'seeding nom'
-    spreadsheet = NomRequest.xlsx_file
-    nom_2d_array = NomSpreadsheet.to_2d_array(spreadsheet)
-    NomImporter.import(nom_2d_array)
+    binding.pry
+
+    puts 'fetching Nom file'
+    spreadsheet = NomFetch.new.xlsx_file
+    puts 'fetch complete'
+
+    puts 'transforming to array'
+    nom_2d_array = NomSpreadsheet.new(spreadsheet).to_2d_array
+    puts 'transform complete'
+
+    puts 'importing data'
+    NomImporter.new.import(nom_2d_array)
     puts 'nom seed complete'
   end
 end
