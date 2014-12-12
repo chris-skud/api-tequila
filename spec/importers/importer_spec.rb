@@ -10,7 +10,8 @@ end
 
 describe 'NomSpreadsheet' do
   it 'should convert xlsx to array' do
-    nom_arr = NomSpreadsheet.to_2d_array(File.open(File.join(Rails.root, 'spec/importers/tequila.xlsx'), 'r'))
+    file = File.open(File.join(Rails.root, 'spec/importers/tequila.xlsx'), 'r')
+    nom_arr = NomSpreadsheet.new(file).to_2d_array
     expect(nom_arr).to be_a Array
   end
 end
