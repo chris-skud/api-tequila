@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'NomRequest' do
   # brittle, probably good place for mock
   it 'Retrieves xlsx file' do
-    file = NomRequest.xlsx_file
+    file = NomFetch.new.xlsx_file
     expect(file).to be_a Tempfile
   end
 end
