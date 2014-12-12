@@ -31,7 +31,7 @@ describe 'NomImporter' do
   }
 
   before do
-    NomImporter.import(import_array)
+    NomImporter.new.import(import_array)
   end
 
   it 'creates producer record from array' do
