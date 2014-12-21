@@ -2,16 +2,14 @@ class NomImporter
 
   def import(nom_array)
     if has_expected_columns?(nom_array)
-      brand_producer_id = 0
 
       nom_array.drop(2).each do |row|
         unless empty?(row)
           if producer_row?(row[2])
-            brand_producer_id = create_or_update_producer(row)
+            @brand_producer_id = create_or_update_producer(row)
           end
-          Brand.create(name: row[4].to_s, producer_id: brand_producer_id)
+          Brand.create(name: row[4].to_s, producer_id: @brand_producer_id)
         end
-
       end
     else
       puts 'invalid file format'
