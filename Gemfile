@@ -11,6 +11,10 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'rake'
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda'
