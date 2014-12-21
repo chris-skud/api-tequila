@@ -4,8 +4,8 @@ defaults: &defaults
   reconnect: true
   host: <%= ENV['MYSQL_HOST'] || '127.0.0.1' %>
   port: <%= ENV['MYSQL_PORT'] %>
-  username: <%= ENV['PROVIDER_MYSQL_USER'] || 'root' %>
-  password: <%= ENV['PROVIDER_MYSQL_PASSWORD'] %>
+  username: <%= ENV['MYSQL_USER'] || 'root' %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
 
 development:
   <<: *defaults
@@ -17,3 +17,4 @@ test: &TEST
   pool: 2
   reconnect: true
   wait_timeout: 31536000
+  username: <%= ENV['MYSQL_USER'] || 'travis' %>
