@@ -1,10 +1,14 @@
 require 'rails_helper'
+require 'webmock/rspec'
 
 describe 'NomRequest' do
-  # brittle, probably good place for mock
   it 'Retrieves xlsx file' do
-    file = NomFetch.new.xlsx_file
-    expect(file).to be_a Tempfile
+    url = 'http://www.crt.org.mx/images/marcascertificadasdetequila04112014.xlsx'
+    stub_request(:any, url).
+      to_return(:body => File.open(Tempfile.new('test_file'), 'r'), :status => 200)
+
+    file = NomFetch.new.xlsx_file url
+    expect(file).to be_a StringIO
   end
 end
 
