@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.8'
-gem 'mysql2'
+gem 'rails', '7.0.5'
+# gem 'mysql2'
 gem 'rails-api'
 gem 'active_model_serializers'
 gem 'foreigner'
-gem 'rubyXL', '~> 3.3.1'
+gem 'rubyXL', '~> 3.3.21'
 
 group :development do
   gem 'spring'
@@ -17,7 +17,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 6.0'
   gem 'shoulda'
   gem 'pry-byebug'
   gem 'factory_girl_rails'
